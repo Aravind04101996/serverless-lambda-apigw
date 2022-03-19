@@ -24,6 +24,12 @@
 ```
 ### Step by Step Guide - Implementation
 
+(0) Clone the repository.
+```bash
+$ git clone git@github.com:Aravind04101996/serverless-lambda-apigw.git
+$ cd serverless-lambda-apigw
+```
+
 (1) Export AWS Credentials (Secret Key & Access Key )
 ```bash
  $ export AWS_ACCESS_KEY_ID="<< YOUR ACCESS KEY >>"
@@ -43,7 +49,7 @@
  terraform apply --var-file="backend.tfvars" --auto-approve
  ```
 
- (4) Update backend configuration in serverless component 
+ (4) Update backend configuration in serverless componen. If you do not make any changes in backend.tfvars in step(3), skip this step.
 ```bash
 cd serverless
 Update bucket name, dynamodb table name, region parameters with appropirate values in backend.tf 
