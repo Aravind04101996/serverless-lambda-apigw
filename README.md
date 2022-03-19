@@ -19,6 +19,8 @@
 ```
 - backend/*
     - Creation of S3 bucket for state files storage, Dynamo DB for state locking.
+- serverless/*
+	- Creation of Lambda Function, API Gateway components (Rest API, Resources, Methods and Integrations), IAM Roles and permissions.
 ```
 ### Step by Step Guide - Implementation
 
@@ -41,10 +43,21 @@
  terraform apply --var-file="backend.tfvars" --auto-approve
  ```
 
- (4) Deploy Serverless Component
+ (4) Update backend configuration in serverless component 
+```bash
+cd serverless
+Update bucket name, dynamodb table name, region parameters with appropirate values in backend.tf 
+```
+
+
+ (5) Deploy Serverless Component
  ```bash
  cd serverless
  terraform init
  terraform plan --var-file="serverless.tfvars"
  terraform apply --var-file="serverless.tfvars" --auto-approve
  ```
+
+ (6) Testing API Gateway + Lambda Integration
+
+ Get API Gateway Stage Invoke URL from output variable `apigw_stage_invoke_url`. Go to browser, invoke the url `http://<<APIGW_STAGE_INVOKE_URL>>/serverless`, you will get "Hello from Lambda" response. <br/>
