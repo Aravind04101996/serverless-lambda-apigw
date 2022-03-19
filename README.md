@@ -5,7 +5,7 @@
 - Flow:
     - User hits API Gateway End Point.
     - API Gateway triggers Lambda when it receives a hit from User.
-    - Lambda receives the request from API Gateway and returns list of available s3 buckets in the aws account as a response.
+    - Lambda receives the request from API Gateway and returns "Hello World" message as a response.
     - API Gateway receives the response from Lambda and present it to User. 
 
 
@@ -39,4 +39,12 @@
  terraform init
  terraform plan --var-file="backend.tfvars"
  terraform apply --var-file="backend.tfvars" --auto-approve
+ ```
+
+ (4) Deploy Serverless Component
+ ```bash
+ cd serverless
+ terraform init
+ terraform plan --var-file="serverless.tfvars"
+ terraform apply --var-file="serverless.tfvars" --auto-approve
  ```

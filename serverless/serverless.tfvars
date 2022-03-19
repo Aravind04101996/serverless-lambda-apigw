@@ -1,0 +1,6 @@
+function_name = "serverless-hello-world"
+filename      = "lambda_function.zip"
+runtime       = "python3.9"
+handler       = "lambda_function.lambda_handler"
+application   = "serverless"
+role_name     = "serverless-iam-role"
